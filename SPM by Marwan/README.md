@@ -85,15 +85,13 @@ spm-by-marwan/
 
 ## 📸 Screenshots
 
-*(Replace placeholders with actual repository images)*
-
-*   ![Dashboard Overview](path/to/placeholder/dashboard.png)
+*   ![Dashboard Overview](assets/screenshots/1.png)
     *Comprehensive dashboard displaying system health and critical alerts.*
-*   ![Performance Diagnostics](path/to/placeholder/diagnostics.png)
+*   ![Performance Diagnostics](assets/screenshots/2.png)
     *Granular performance breakdown of individual extensions.*
-*   ![Security Scan Results](path/to/placeholder/security.png)
+*   ![Security Scan Results](assets/screenshots/3.png)
     *Detailed vulnerability reporting and security recommendations.*
-*   ![Historical Analytics](path/to/placeholder/analytics.png)
+*   ![Historical Analytics](assets/screenshots/4.png)
     *Long-term performance trends and update impact visualization.*
 
 ---
