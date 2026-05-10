@@ -1,110 +1,122 @@
-# Smart Plugin Monitor 🚀
+# SPM by Marwan
 
-**Advanced WordPress Plugin Intelligence, Diagnostics, Security & Trust Platform**
+**Advanced WordPress Intelligence, Diagnostics, Security, Performance, and Trust Platform.**
 
-Smart Plugin Monitor is a next-generation WordPress plugin built to provide deep visibility into your WordPress plugin ecosystem.
-
-It goes far beyond traditional monitoring by combining:
-
-- **Performance Diagnostics**
-- **Security Analysis**
-- **Trust Verification**
-- **Historical Intelligence**
-- **Actionable Plugin Control**
+SPM by Marwan is a professional-grade diagnostics and intelligence platform designed for WordPress administrators and developers. It provides deep visibility into your WordPress ecosystem, offering real-time monitoring, security auditing, and performance profiling to ensure your site remains fast, secure, and stable.
 
 ---
 
-## 🧠 Why Smart Plugin Monitor?
+## 🛑 The Problem
 
-Managing multiple WordPress plugins can quickly become risky and chaotic. Most site owners and developers struggle to answer critical questions:
+Managing a modern WordPress ecosystem is inherently complex. Site owners and developers frequently struggle with:
 
-- *Which plugin is slowing down my site?*
-- *Which plugin is causing hidden PHP errors?*
-- *Which plugin may contain suspicious code?*
-- *Which plugins are trustworthy?*
-- *How did a recent update impact performance?*
-- *Which plugin should I investigate first?*
-
-Smart Plugin Monitor was designed to solve these problems with enterprise-grade diagnostic architecture.
+*   **Slow Extensions:** Identifying which specific extension is degrading page load times or consuming excessive server resources.
+*   **Hidden PHP Errors:** Unseen warnings and fatal errors that silently break functionality or create vulnerabilities.
+*   **Security Risks:** Unmaintained, abandoned, or vulnerable code exposing the site to potential exploits.
+*   **Trust Issues:** Uncertainty regarding an extension's origin, development standards, and code quality.
+*   **Update Degradation:** Performance regressions and unexpected conflicts introduced immediately after updates.
 
 ---
 
-## 🔥 Core Features
+## ✨ Core Features
 
-### ⚡ Real-Time Monitoring Engine
-Track plugin behavior in real time:
-- Plugin load time tracking
-- Performance bottleneck identification
-- PHP error capture
-- Plugin-specific health metrics
-- Database-backed monitoring logs
+### Real-Time Monitoring Engine
+Actively tracks resource consumption, database queries, and execution times for every active extension. Identifies performance bottlenecks as they happen, preventing systemic slowdowns.
 
-### 📊 Premium Diagnostic Dashboard
-Modern SaaS-inspired WordPress admin dashboard:
-- Global Health Score
-- Performance cards
-- Plugin trust badges
-- Security alerts
-- Risk indicators
-- Historical trends
+### Performance Diagnostics
+Deep-dive profiling for individual extensions. Analyzes memory footprint and script execution to provide actionable intelligence on resource utilization.
 
-### 🔍 Deep Plugin Diagnostics
-Each plugin can be analyzed individually with dedicated diagnostic views:
-- **Performance Layer:** Average load time, maximum / minimum load time, error frequency, health score.
-- **Historical Trend Analysis:** 7-day / 30-day comparisons.
+### Security Scanner
+Proactively audits installed extensions against known vulnerability databases and flags high-risk code patterns. Ensures your stack adheres to strict security standards.
 
-### 🛡️ Security Scanner
-Recursive plugin scanning for suspicious code patterns:
-- Detects dangerous functions like `eval`, `base64_decode`, `gzinflate`, `shell_exec`, `exec`, `system`
-- **Security Features:**
-  - Risk score generation
-  - Suspicious file detection
-  - Recursive scan engine
-  - Lightweight scan optimization
+### Trust Verification
+Evaluates code based on developer reputation, update frequency, repository standing, and code integrity. Establishes a trust score to help you make informed decisions about your technology stack.
 
-### 🏷️ Trust Verification Engine
-Plugin legitimacy & source confidence:
-- License metadata analysis
-- Author verification
-- Plugin URI validation
-- Source classification
-- **Verification badges:** ✅ Verified, ⚠️ Unknown, 🚨 Suspicious
+### Historical Analytics
+Maintains a robust ledger of performance and security metrics over time. Visualizes trends to help you understand the long-term impact of specific extensions and updates.
 
-### 📈 Historical Analytics
-Track plugin behavior over time:
-- Last 24h metrics
-- 7-day trends
-- 30-day trends
-- Performance degradation tracking
-- Update impact correlation
-
-### ⚙️ Action Layer
-Take action directly from the dashboard:
-- Scan Now
-- Safe Mode
-- Plugin Isolation
-- Enable / Disable
-- Export Reports
-
----
-
-## 🎨 UI/UX Philosophy
-
-Smart Plugin Monitor was designed with a premium product mindset:
-
-**Inspired By:**
-- Stripe
-- Vercel
-- Enterprise observability platforms
-
-**Design Principles:**
-- Modern
-- Clean
-- Professional
-- Developer-first
-- Actionable insights
+### Action Layer (Scan / Safe Mode / Reporting)
+Provides immediate remediation tools. Execute targeted scans, isolate problematic extensions using Safe Mode, and generate comprehensive diagnostics reports for stakeholders or development teams.
 
 ---
 
 ## 🏗️ Technical Architecture
-Smart Plugin Monitor uses a modular, object-oriented PHP architecture alongside a vanilla JavaScript and custom CSS dashboard, ensuring zero dependency bloat and maximum performance.
+
+SPM by Marwan is built on a robust, scalable foundation designed for minimal overhead:
+
+*   **Modular OOP Structure:** Clean, extensible Object-Oriented PHP architecture ensuring maintainability and easy integration.
+*   **Monitoring Engine:** Lightweight hooks into the WordPress core to gather metrics without degrading performance.
+*   **Security & Trust Scanners:** Asynchronous analysis modules that run non-blocking audits.
+*   **Historical Analyzer:** Efficient data aggregation processes for long-term trend analysis.
+*   **Centralized Data Layer:** Optimized custom database tables designed for high-speed read/write operations and minimal storage footprint.
+
+---
+
+## 🚀 Installation
+
+1.  **Download:** Download the latest release of `spm-by-marwan`.
+2.  **Upload:** Upload the `spm-by-marwan` folder to your `/wp-content/plugins/` directory.
+3.  **Activate:** Navigate to the **Plugins** menu in WordPress and activate "SPM by Marwan".
+4.  **Access:** Locate the new **Smart Monitor** dashboard in your WordPress admin menu to begin profiling your site.
+
+---
+
+## 📁 Folder Structure
+
+```text
+spm-by-marwan/
+├── assets/                  # CSS, JS, and image assets
+│   ├── css/
+│   └── js/
+├── includes/                # Core PHP classes and logic
+│   ├── Admin/               # Dashboard and UI controllers
+│   ├── Analyzers/           # Historical data processing
+│   ├── Data/                # Database and model layer
+│   ├── Diagnostics/         # Performance profiling engine
+│   ├── Scanners/            # Security and vulnerability checks
+│   └── Trust/               # Reputation and integrity verification
+├── templates/               # Template files for the admin interface
+├── smart-plugin-monitor.php # Main plugin bootstrap file
+├── uninstall.php            # Clean up routines upon deletion
+└── README.md                # Project documentation
+```
+
+---
+
+## 📸 Screenshots
+
+*   ![Dashboard Overview](SPM by Marwan/assets/screenshots/1.png)
+    *Comprehensive dashboard displaying system health and critical alerts.*
+*   ![Performance Diagnostics](SPM by Marwan/assets/screenshots/2.png)
+    *Granular performance breakdown of individual extensions.*
+*   ![Security Scan Results](SPM by Marwan/assets/screenshots/3.png)
+    *Detailed vulnerability reporting and security recommendations.*
+*   ![Historical Analytics](SPM by Marwan/assets/screenshots/4.png)
+    *Long-term performance trends and update impact visualization.*
+
+---
+
+## 🗺️ Roadmap
+
+We are continuously evolving SPM by Marwan to provide deeper intelligence. Upcoming features include:
+
+*   **AI Predictive Diagnostics:** Machine learning models to anticipate conflicts and performance degradation before they impact users.
+*   **SaaS Dashboard Integration:** Centralized management for agencies and administrators handling multiple WordPress installations.
+*   **Premium Reports:** Automated, white-labeled PDF reporting for clients and stakeholders.
+
+---
+
+## 🤝 Contribution
+
+We believe in the power of open-source collaboration. Contributions, bug reports, and feature requests are highly encouraged. 
+
+*   **Issues:** Please use the GitHub Issue Tracker to report bugs or request features.
+*   **Pull Requests:** We welcome code contributions. Please ensure your code adheres to WordPress coding standards and includes appropriate documentation.
+
+---
+
+## 📄 License
+
+This project is licensed under the **GNU General Public License v2.0 or later** (GPLv2 or later). 
+
+See the `LICENSE` file for full details.
