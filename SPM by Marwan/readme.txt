@@ -64,5 +64,12 @@ No. SPM by Marwan is built on a robust, scalable foundation designed for minimal
 
 == Changelog ==
 
+= 1.2.0 =
+* Major structural refactoring for WordPress.org compliance.
+* Extracted inline CSS into enqueued files.
+* Removed development error_reporting overrides.
+* Synchronized global text-domain to smart-performance-monitor.
+* Strengthened security and escaping across all template files.
+
 = 1.0.0 =
 * Initial release.
