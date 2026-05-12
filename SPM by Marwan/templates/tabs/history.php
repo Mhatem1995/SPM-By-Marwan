@@ -113,7 +113,7 @@ $rollback = $data['rollback'] ?? [];
                             <?php foreach ( $trends['versions'] as $v ) : 
                                 $is_current = ($v['plugin_version'] === $meta['version']);
                             ?>
-                            <tr class="<?php echo $is_current ? 'spm-version--current' : ''; ?>">
+                            <tr class="<?php echo esc_attr( $is_current ? 'spm-version--current' : '' ); ?>">
                                 <td>
                                     <strong>v<?php echo esc_html( $v['plugin_version'] ?? '' ); ?></strong>
                                     <?php if ( $is_current ) : ?>

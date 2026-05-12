@@ -53,6 +53,19 @@ function spmbyma_activate()
 register_activation_hook(__FILE__, 'spmbyma_activate');
 
 /**
+ * Load plugin text domain for translations.
+ */
+function spmbyma_load_textdomain()
+{
+    load_plugin_textdomain(
+        'smart-performance-monitor',
+        false,
+        dirname( plugin_basename( __FILE__ ) ) . '/languages'
+    );
+}
+add_action( 'init', 'spmbyma_load_textdomain' );
+
+/**
  * Bootstrap the plugin after all plugins have loaded.
  *
  * We use a singleton pattern so the monitor only initialises once.
@@ -87,7 +100,7 @@ function spmbyma_init()
 
     // Admin UI (only loaded in wp-admin).
     if (is_admin()) {
-        new SPMBYMA_Admin($data_service, $detail_provider, $analyzer, $license_detector, $security_scanner);
+        new SPMBYMA_Admin($data_service, $detail_provider);
     }
 }
 add_action('plugins_loaded', 'spmbyma_init', PHP_INT_MAX);

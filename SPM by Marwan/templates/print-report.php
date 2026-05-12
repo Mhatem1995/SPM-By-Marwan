@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <meta charset="UTF-8">
     <title><?php esc_html_e( 'Plugin Diagnostic Report', 'smart-performance-monitor' ); ?></title>
     <?php
-    wp_enqueue_style( 'spmbyma-print', SPMBYMA_PLUGIN_URL . 'assets/css/print-report.css', [], '1.2.0' );
+    wp_enqueue_style( 'spmbyma-print', SPMBYMA_PLUGIN_URL . 'assets/css/print-report.css', [], SPMBYMA_VERSION );
     wp_print_styles( 'spmbyma-print' );
     ?>
 </head>

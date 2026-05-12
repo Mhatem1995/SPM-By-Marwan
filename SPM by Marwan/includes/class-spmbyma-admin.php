@@ -71,22 +71,22 @@ class SPMBYMA_Admin {
         }
 
         wp_enqueue_style(
-            'spm-admin',
+            'spmbyma-admin',
             SPMBYMA_PLUGIN_URL . 'assets/css/admin.css',
             [],
             SPMBYMA_VERSION
         );
 
         wp_enqueue_script(
-            'spm-dashboard',
+            'spmbyma-dashboard',
             SPMBYMA_PLUGIN_URL . 'assets/js/dashboard.js',
             [],
             SPMBYMA_VERSION,
             true
         );
 
-        wp_localize_script( 'spm-dashboard', 'spmConfig', [
-            'restUrl' => esc_url_raw( rest_url( 'spm/v1' ) ),
+        wp_localize_script( 'spmbyma-dashboard', 'spmbymaConfig', [
+            'restUrl' => esc_url_raw( rest_url( 'spmbyma/v1' ) ),
             'nonce'   => wp_create_nonce( 'wp_rest' ),
         ] );
     }
@@ -96,7 +96,9 @@ class SPMBYMA_Admin {
      */
     public function render_page(): void {
         // Handle Print View
-        if ( isset( $_GET['spmbyma_view'] ) && $_GET['spmbyma_view'] === 'print' ) {
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only navigation parameter.
+        $spmbyma_view = isset( $_GET['spmbyma_view'] ) ? sanitize_text_field( wp_unslash( $_GET['spmbyma_view'] ) ) : '';
+        if ( 'print' === $spmbyma_view ) {
             $this->render_print_view();
             return;
         }

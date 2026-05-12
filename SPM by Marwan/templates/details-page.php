@@ -162,7 +162,7 @@ $isolation_target = get_option('spmbyma_isolation_target');
                             <?php esc_html_e('Recent Activity Logs', 'smart-performance-monitor'); ?>
                         </h2>
                         <div style="display:flex; align-items:center; gap: 8px;">
-                            <span class="spm-panel__badge"><?php echo count($logs); ?></span>
+                            <span class="spm-panel__badge"><?php echo esc_html( count($logs) ); ?></span>
                             <?php if ( ! empty( $logs ) ) : ?>
                                 <button class="spm-btn spm-btn--sm spm-btn--white" data-spm-action="wipe-logs" title="<?php esc_attr_e( 'Wipe error logs for this plugin', 'smart-performance-monitor' ); ?>" style="padding: 2px 6px !important; min-height: 24px; color: #ef4444 !important;">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
@@ -180,9 +180,9 @@ $isolation_target = get_option('spmbyma_isolation_target');
                                 <div class="spm-detail-error">
                                     <div class="spm-detail-error__head">
                                         <span
-                                            class="spm-dot spm-dot--<?php echo $log['error_message'] ? 'danger' : 'success'; ?> spm-dot--sm"></span>
+                                            class="spm-dot spm-dot--<?php echo esc_attr( $log['error_message'] ? 'danger' : 'success' ); ?> spm-dot--sm"></span>
                                         <span
-                                            class="spm-detail-error__level"><?php echo $log['error_message'] ? esc_html($log['error_level'] ?? 'ERROR') : 'OK'; ?></span>
+                                            class="spm-detail-error__level"><?php echo esc_html( $log['error_message'] ? ( $log['error_level'] ?? 'ERROR' ) : 'OK' ); ?></span>
                                         <span
                                             class="spm-detail-error__time"><?php echo esc_html($log['created_at'] ?? ''); ?></span>
                                         <span class="spm-detail-error__load"><?php echo esc_html($log['load_time_ms'] ?? 0); ?>

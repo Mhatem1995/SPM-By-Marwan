@@ -81,7 +81,7 @@ $trend = $trend_labels[ $perf['trend'] ?? 'stable' ] ?? $trend_labels['stable'];
         </div>
         <div class="spm-detail-card">
             <span class="spm-detail-card__label"><?php esc_html_e( 'Errors Found', 'smart-performance-monitor' ); ?></span>
-            <span class="spm-detail-card__value <?php echo $perf['error_count'] > 0 ? 'spm-text--danger' : ''; ?>">
+            <span class="spm-detail-card__value <?php echo esc_attr( $perf['error_count'] > 0 ? 'spm-text--danger' : '' ); ?>">
                 <?php echo number_format_i18n( $perf['error_count'] ?? 0 ); ?>
             </span>
             <div class="spm-detail-card__footer">
@@ -114,11 +114,11 @@ $trend = $trend_labels[ $perf['trend'] ?? 'stable' ] ?? $trend_labels['stable'];
                             $date_str = (string) ( $day['date'] ?? '' );
                             
                             $height      = ( $max_ms > 0 ) ? ( $avg_ms / $max_ms ) * 100 : 0;
-                            $day_label   = $date_str ? date( 'D', strtotime( $date_str ) ) : '??';
+                            $day_label   = $date_str ? wp_date( 'D', strtotime( $date_str ) ) : '??';
                             $color_class = $avg_ms > 500 ? 'danger' : ( $avg_ms > 200 ? 'warning' : 'success' );
                         ?>
                             <div class="spm-history-bar-wrap">
-                                <div class="spm-history-bar spm-history-bar--<?php echo $color_class; ?>" 
+                                <div class="spm-history-bar spm-history-bar--<?php echo esc_attr( $color_class ); ?>" 
                                      style="height: <?php echo esc_attr( $height ); ?>%;"
                                      title="<?php printf( esc_attr__( '%s: %.2f ms', 'smart-performance-monitor' ), esc_attr( $date_str ), $avg_ms ); ?>">
                                 </div>
@@ -128,7 +128,7 @@ $trend = $trend_labels[ $perf['trend'] ?? 'stable' ] ?? $trend_labels['stable'];
                     </div>
                     <div class="spm-history-chart__legend">
                         <span>0ms</span>
-                        <span><?php echo number_format($max_ms, 0); ?>ms</span>
+                        <span><?php echo esc_html( number_format( $max_ms, 0 ) ); ?>ms</span>
                     </div>
                 </div>
             <?php endif; ?>

@@ -3,12 +3,12 @@
  * REST API controller for Smart Plugin Monitor.
  *
  * Provides AJAX endpoints for the interactive dashboard:
- *   - GET  /spm/v1/plugin/<basename>          → Plugin detail
- *   - POST /spm/v1/scan                       → Quick re-scan
- *   - POST /spm/v1/deep-scan                  → Force-refresh license scan
- *   - POST /spm/v1/security-scan/<basename>   → Deep security file scan
- *   - POST /spm/v1/disable/<basename>         → Deactivate a plugin
- *   - GET  /spm/v1/export                     → Export full report as JSON
+ *   - GET  /spmbyma/v1/plugin/<basename>          → Plugin detail
+ *   - POST /spmbyma/v1/scan                       → Quick re-scan
+ *   - POST /spmbyma/v1/deep-scan                  → Force-refresh license scan
+ *   - POST /spmbyma/v1/security-scan/<basename>   → Deep security file scan
+ *   - POST /spmbyma/v1/disable/<basename>         → Deactivate a plugin
+ *   - GET  /spmbyma/v1/export                     → Export full report as JSON
  *
  * @package SmartPluginMonitor
  */
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class SPMBYMA_REST_Controller {
 
-    private const REST_NAMESPACE = 'spm/v1';
+    private const REST_NAMESPACE = 'spmbyma/v1';
 
     private SPMBYMA_Detail_Provider $detail_provider;
     private SPMBYMA_Data_Service $data_service;
@@ -182,7 +182,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * GET /spm/v1/plugin/{basename}
+     * GET /spmbyma/v1/plugin/{basename}
      */
     public function get_plugin_detail( \WP_REST_Request $request ): \WP_REST_Response {
         $basename = $request->get_param( 'basename' );
@@ -196,7 +196,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * POST /spm/v1/scan
+     * POST /spmbyma/v1/scan
      */
     public function run_scan(): \WP_REST_Response {
         $report = $this->analyzer->run( 7 );
@@ -210,7 +210,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * POST /spm/v1/deep-scan
+     * POST /spmbyma/v1/deep-scan
      */
     public function run_deep_scan(): \WP_REST_Response {
         $report = $this->license_detector->scan( true );
@@ -224,7 +224,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * POST /spm/v1/security-scan/{basename}
+     * POST /spmbyma/v1/security-scan/{basename}
      */
     public function run_security_scan( \WP_REST_Request $request ): \WP_REST_Response {
         $basename = $request->get_param( 'basename' );
@@ -248,7 +248,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * POST /spm/v1/wipe-logs
+     * POST /spmbyma/v1/wipe-logs
      */
     public function wipe_logs( \WP_REST_Request $request ): \WP_REST_Response {
         $basename = $request->get_param( 'basename' );
@@ -263,7 +263,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * POST /spm/v1/disable/{basename}
+     * POST /spmbyma/v1/disable/{basename}
      */
     public function enable_plugin( \WP_REST_Request $request ): \WP_REST_Response {
         $basename = $request->get_param( 'basename' );
@@ -272,7 +272,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * POST /spm/v1/disable/{basename}
+     * POST /spmbyma/v1/disable/{basename}
      */
     public function disable_plugin( \WP_REST_Request $request ): \WP_REST_Response {
         $basename = $request->get_param( 'basename' );
@@ -281,7 +281,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * POST /spm/v1/isolate/{basename}
+     * POST /spmbyma/v1/isolate/{basename}
      */
     public function isolate_plugin( \WP_REST_Request $request ): \WP_REST_Response {
         $basename = $request->get_param( 'basename' );
@@ -290,7 +290,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * POST /spm/v1/restore
+     * POST /spmbyma/v1/restore
      */
     public function restore_isolation(): \WP_REST_Response {
         $result = $this->action_controller->restore_state();
@@ -298,7 +298,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * GET /spm/v1/export
+     * GET /spmbyma/v1/export
      */
     public function export_report(): \WP_REST_Response {
         $snap    = $this->data_service->get_dashboard_snapshot( 7 );
@@ -329,11 +329,11 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * GET /spm/v1/export/csv
+     * GET /spmbyma/v1/export/csv
      */
     public function export_csv(): void {
         $csv = $this->export_service->generate_csv_report();
-        $filename = 'spm-diagnostic-report-' . date('Y-m-d') . '.csv';
+        $filename = 'spm-diagnostic-report-' . wp_date('Y-m-d') . '.csv';
 
         header( 'Content-Type: text/csv; charset=utf-8' );
         header( 'Content-Disposition: attachment; filename=' . $filename );
@@ -343,7 +343,7 @@ class SPMBYMA_REST_Controller {
     }
 
     /**
-     * GET /spm/v1/export/pdf
+     * GET /spmbyma/v1/export/pdf
      */
     public function export_pdf(): void {
         // PDF is handled via a printable HTML view.

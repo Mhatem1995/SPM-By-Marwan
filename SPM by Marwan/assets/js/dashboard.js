@@ -10,8 +10,8 @@
     'use strict';
 
     /* ── Config from wp_localize_script ── */
-    const CFG = window.spmConfig || {};
-    const API = CFG.restUrl || '/wp-json/spm/v1';
+    const CFG = window.spmbymaConfig || {};
+    const API = CFG.restUrl || '/wp-json/spmbyma/v1';
     const NONCE = CFG.nonce || '';
 
     /* ── DOM refs (set in init) ── */

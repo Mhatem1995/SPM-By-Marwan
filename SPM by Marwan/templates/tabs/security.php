@@ -58,7 +58,7 @@ $affected_count = count( $affected_files );
         </div>
         <div class="spm-detail-card">
             <span class="spm-detail-card__label"><?php esc_html_e( 'Suspicious Calls', 'smart-performance-monitor' ); ?></span>
-            <span class="spm-detail-card__value <?php echo $security['findings_count'] > 0 ? 'spm-text--danger' : ''; ?>">
+            <span class="spm-detail-card__value <?php echo esc_attr( $security['findings_count'] > 0 ? 'spm-text--danger' : '' ); ?>">
                 <?php echo (int) $security['findings_count']; ?>
             </span>
             <div class="spm-detail-card__footer">
@@ -75,7 +75,7 @@ $affected_count = count( $affected_files );
         <div class="spm-panel__body">
             <div class="spm-verification-grid">
                 <div class="spm-v-item">
-                    <div class="spm-v-icon spm-v-icon--<?php echo $trust['source'] === 'wordpress.org' ? 'success' : 'neutral'; ?>">
+                    <div class="spm-v-icon spm-v-icon--<?php echo esc_attr( $trust['source'] === 'wordpress.org' ? 'success' : 'neutral' ); ?>">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                     </div>
                     <div class="spm-v-content">
@@ -84,7 +84,7 @@ $affected_count = count( $affected_files );
                     </div>
                 </div>
                 <div class="spm-v-item">
-                    <div class="spm-v-icon spm-v-icon--<?php echo $trust['verification'] === 'verified' ? 'success' : 'warning'; ?>">
+                    <div class="spm-v-icon spm-v-icon--<?php echo esc_attr( $trust['verification'] === 'verified' ? 'success' : 'warning' ); ?>">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
                     </div>
                     <div class="spm-v-content">
@@ -93,7 +93,7 @@ $affected_count = count( $affected_files );
                     </div>
                 </div>
                 <div class="spm-v-item">
-                    <div class="spm-v-icon spm-v-icon--<?php echo $trust['license'] !== 'Not specified' ? 'success' : 'neutral'; ?>">
+                    <div class="spm-v-icon spm-v-icon--<?php echo esc_attr( $trust['license'] !== 'Not specified' ? 'success' : 'neutral' ); ?>">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     </div>
                     <div class="spm-v-content">
@@ -117,7 +117,7 @@ $affected_count = count( $affected_files );
                     <?php foreach ( $security['findings'] as $f ) : ?>
                         <div class="spm-finding spm-finding--<?php echo esc_attr( $f['severity'] ?? '' ); ?>">
                             <div class="spm-finding__header">
-                                <span class="spm-severity-badge spm-severity-badge--<?php echo $f['severity'] === 'critical' || $f['severity'] === 'high' ? 'danger' : ($f['severity'] === 'medium' ? 'warning' : 'neutral'); ?>">
+                                <span class="spm-severity-badge spm-severity-badge--<?php echo esc_attr( $f['severity'] === 'critical' || $f['severity'] === 'high' ? 'danger' : ($f['severity'] === 'medium' ? 'warning' : 'neutral') ); ?>">
                                     <?php echo esc_html( $f['severity'] ?? '' ); ?>
                                 </span>
                                 <span class="spm-finding__label"><?php echo esc_html( $f['label'] ?? '' ); ?></span>

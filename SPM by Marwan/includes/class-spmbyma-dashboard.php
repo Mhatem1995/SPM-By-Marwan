@@ -251,7 +251,7 @@ class SPMBYMA_Dashboard {
                         <div class="spm-panel__header">
                             <h2 class="spm-panel__title"><?php esc_html_e( 'Recent Errors', 'smart-performance-monitor' ); ?></h2>
                             <div style="display:flex; align-items:center; gap: 8px;">
-                                <span class="spm-panel__badge <?php echo count( $recent_errors ) > 0 ? 'spm-panel__badge--warning' : ''; ?>">
+                                <span class="spm-panel__badge <?php echo esc_attr( count( $recent_errors ) > 0 ? 'spm-panel__badge--warning' : '' ); ?>">
                                     <?php echo esc_html( count( $recent_errors ) ); ?>
                                 </span>
                                 <?php if ( ! empty( $recent_errors ) ) : ?>

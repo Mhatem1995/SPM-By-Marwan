@@ -38,6 +38,7 @@ class SPMBYMA_Details_Controller {
         }
 
         // 1. Get and sanitize plugin slug (basename).
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only navigation parameter.
         $plugin_slug = isset( $_GET['plugin'] ) ? sanitize_text_field( wp_unslash( $_GET['plugin'] ) ) : '';
 
         if ( empty( $plugin_slug ) ) {
