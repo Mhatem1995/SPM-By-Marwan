@@ -32,20 +32,20 @@ class SPMBYMA_Action_Controller {
         }
 
         if ( ! is_plugin_active( $basename ) ) {
-            return [ 'success' => false, 'message' => __( 'Plugin is already inactive.', 'smart-performance-monitor' ) ];
+            return [ 'success' => false, 'message' => __( 'Plugin is already inactive.', 'spm-by-marwan' ) ];
         }
 
         // Prevent suicide
         if ( plugin_basename( SPMBYMA_PLUGIN_FILE ) === $basename ) {
              $this->database->log_action( $basename, 'disable', 'failed', 'Self-deactivation attempt blocked.' );
-             return [ 'success' => false, 'message' => __( 'Cannot disable the monitor itself.', 'smart-performance-monitor' ) ];
+             return [ 'success' => false, 'message' => __( 'Cannot disable the monitor itself.', 'spm-by-marwan' ) ];
         }
 
         deactivate_plugins( $basename );
         
         $this->database->log_action( $basename, 'disable', 'success' );
 
-        return [ 'success' => true, 'message' => __( 'Plugin deactivated successfully.', 'smart-performance-monitor' ) ];
+        return [ 'success' => true, 'message' => __( 'Plugin deactivated successfully.', 'spm-by-marwan' ) ];
     }
 
     /**
@@ -59,7 +59,7 @@ class SPMBYMA_Action_Controller {
         }
 
         if ( ! is_plugin_active( $basename ) ) {
-            return [ 'success' => false, 'message' => __( 'Plugin must be active to be isolated.', 'smart-performance-monitor' ) ];
+            return [ 'success' => false, 'message' => __( 'Plugin must be active to be isolated.', 'spm-by-marwan' ) ];
         }
 
         // Save state before deactivating
@@ -70,7 +70,7 @@ class SPMBYMA_Action_Controller {
         
         $this->database->log_action( $basename, 'isolate', 'success', 'Plugin isolated for performance testing.' );
 
-        return [ 'success' => true, 'message' => __( 'Plugin isolated. Run your tests now.', 'smart-performance-monitor' ) ];
+        return [ 'success' => true, 'message' => __( 'Plugin isolated. Run your tests now.', 'spm-by-marwan' ) ];
     }
 
     /**
@@ -81,7 +81,7 @@ class SPMBYMA_Action_Controller {
 
         $target = get_option( 'spmbyma_isolation_target' );
         if ( ! $target ) {
-            return [ 'success' => false, 'message' => __( 'No active isolation found.', 'smart-performance-monitor' ) ];
+            return [ 'success' => false, 'message' => __( 'No active isolation found.', 'spm-by-marwan' ) ];
         }
 
         if ( ! function_exists( 'activate_plugin' ) ) {
@@ -100,7 +100,7 @@ class SPMBYMA_Action_Controller {
 
         $this->database->log_action( $target, 'restore', 'success' );
 
-        return [ 'success' => true, 'message' => __( 'Isolation ended. Plugin restored.', 'smart-performance-monitor' ) ];
+        return [ 'success' => true, 'message' => __( 'Isolation ended. Plugin restored.', 'spm-by-marwan' ) ];
     }
 
     /**
@@ -114,7 +114,7 @@ class SPMBYMA_Action_Controller {
         }
 
         if ( is_plugin_active( $basename ) ) {
-            return [ 'success' => false, 'message' => __( 'Plugin is already active.', 'smart-performance-monitor' ) ];
+            return [ 'success' => false, 'message' => __( 'Plugin is already active.', 'spm-by-marwan' ) ];
         }
 
         $result = activate_plugin( $basename );
@@ -126,7 +126,7 @@ class SPMBYMA_Action_Controller {
 
         $this->database->log_action( $basename, 'enable', 'success' );
 
-        return [ 'success' => true, 'message' => __( 'Plugin activated successfully.', 'smart-performance-monitor' ) ];
+        return [ 'success' => true, 'message' => __( 'Plugin activated successfully.', 'spm-by-marwan' ) ];
     }
 
     /**
@@ -141,7 +141,7 @@ class SPMBYMA_Action_Controller {
      */
     private function check_permissions(): void {
         if ( ! current_user_can( 'activate_plugins' ) ) {
-            wp_die( esc_html__( 'Unauthorized: You do not have permission to manage plugins.', 'smart-performance-monitor' ) );
+            wp_die( esc_html__( 'Unauthorized: You do not have permission to manage plugins.', 'spm-by-marwan' ) );
         }
     }
 }

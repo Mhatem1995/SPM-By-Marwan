@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $trend_labels = [
-    'improving' => [ 'label' => __( 'Improving', 'smart-performance-monitor' ), 'class' => 'success', 'icon' => 'arrow-down' ],
-    'stable'    => [ 'label' => __( 'Stable', 'smart-performance-monitor' ),    'class' => 'neutral', 'icon' => 'minus' ],
-    'degrading' => [ 'label' => __( 'Degrading', 'smart-performance-monitor' ), 'class' => 'danger',  'icon' => 'arrow-up' ],
+    'improving' => [ 'label' => __( 'Improving', 'spm-by-marwan' ), 'class' => 'success', 'icon' => 'arrow-down' ],
+    'stable'    => [ 'label' => __( 'Stable', 'spm-by-marwan' ),    'class' => 'neutral', 'icon' => 'minus' ],
+    'degrading' => [ 'label' => __( 'Degrading', 'spm-by-marwan' ), 'class' => 'danger',  'icon' => 'arrow-up' ],
 ];
 
 $trend = $trend_labels[ $perf['trend'] ?? 'stable' ] ?? $trend_labels['stable'];
@@ -28,7 +28,7 @@ $trend = $trend_labels[ $perf['trend'] ?? 'stable' ] ?? $trend_labels['stable'];
         <div class="spm-perf-summary-left">
             <div class="spm-big-score">
                 <span class="spm-big-score__val"><?php echo (int) ( $perf['score'] ?? 0 ); ?></span>
-                <span class="spm-big-score__label"><?php esc_html_e( 'Health Score', 'smart-performance-monitor' ); ?></span>
+                <span class="spm-big-score__label"><?php esc_html_e( 'Health Score', 'spm-by-marwan' ); ?></span>
             </div>
             <div class="spm-perf-trend-indicator spm-perf-trend-indicator--<?php echo esc_attr( $trend['class'] ); ?>">
                 <span class="spm-trend-badge">
@@ -43,13 +43,13 @@ $trend = $trend_labels[ $perf['trend'] ?? 'stable' ] ?? $trend_labels['stable'];
                     </svg>
                     <?php echo esc_html( $trend['label'] ); ?>
                 </span>
-                <span class="spm-trend-desc"><?php esc_html_e( 'Performance trend over 7 days', 'smart-performance-monitor' ); ?></span>
+                <span class="spm-trend-desc"><?php esc_html_e( 'Performance trend over 7 days', 'spm-by-marwan' ); ?></span>
             </div>
         </div>
         <div class="spm-perf-summary-right">
              <div class="spm-grade-box spm-grade-box--<?php echo esc_attr( strtolower( $perf['grade'] ?? 'n/a' ) ); ?>">
                 <span class="spm-grade-box__letter"><?php echo esc_html( $perf['grade'] ?? '-' ); ?></span>
-                <span class="spm-grade-box__label"><?php esc_html_e( 'Performance Grade', 'smart-performance-monitor' ); ?></span>
+                <span class="spm-grade-box__label"><?php esc_html_e( 'Performance Grade', 'spm-by-marwan' ); ?></span>
              </div>
         </div>
     </div>
@@ -57,35 +57,35 @@ $trend = $trend_labels[ $perf['trend'] ?? 'stable' ] ?? $trend_labels['stable'];
     <!-- ── Visual KPI Cards ── -->
     <div class="spm-details-stats-grid">
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( 'Avg Load Time', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( 'Avg Load Time', 'spm-by-marwan' ); ?></span>
             <span class="spm-detail-card__value"><?php echo esc_html( $perf['avg_ms'] ?? 0 ); ?> <small>ms</small></span>
             <div class="spm-detail-card__footer">
                 <span class="<?php echo ( $perf['is_slow'] ?? false ) ? 'spm-text--danger' : 'spm-text--success'; ?>">
-                    <?php echo ( $perf['is_slow'] ?? false ) ? esc_html__( 'Attention required', 'smart-performance-monitor' ) : esc_html__( 'Optimal speed', 'smart-performance-monitor' ); ?>
+                    <?php echo ( $perf['is_slow'] ?? false ) ? esc_html__( 'Attention required', 'spm-by-marwan' ) : esc_html__( 'Optimal speed', 'spm-by-marwan' ); ?>
                 </span>
             </div>
         </div>
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( 'Peak Load Time', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( 'Peak Load Time', 'spm-by-marwan' ); ?></span>
             <span class="spm-detail-card__value"><?php echo esc_html( $perf['max_ms'] ?? 0 ); ?> <small>ms</small></span>
             <div class="spm-detail-card__footer">
-                <span><?php esc_html_e( 'Slowest sample recorded', 'smart-performance-monitor' ); ?></span>
+                <span><?php esc_html_e( 'Slowest sample recorded', 'spm-by-marwan' ); ?></span>
             </div>
         </div>
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( 'Total Samples', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( 'Total Samples', 'spm-by-marwan' ); ?></span>
             <span class="spm-detail-card__value"><?php echo number_format_i18n( $perf['sample_count'] ?? 0 ); ?></span>
             <div class="spm-detail-card__footer">
-                <span><?php esc_html_e( 'Monitoring data points', 'smart-performance-monitor' ); ?></span>
+                <span><?php esc_html_e( 'Monitoring data points', 'spm-by-marwan' ); ?></span>
             </div>
         </div>
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( 'Errors Found', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( 'Errors Found', 'spm-by-marwan' ); ?></span>
             <span class="spm-detail-card__value <?php echo esc_attr( $perf['error_count'] > 0 ? 'spm-text--danger' : '' ); ?>">
                 <?php echo number_format_i18n( $perf['error_count'] ?? 0 ); ?>
             </span>
             <div class="spm-detail-card__footer">
-                <span><?php esc_html_e( 'Captured PHP issues', 'smart-performance-monitor' ); ?></span>
+                <span><?php esc_html_e( 'Captured PHP issues', 'spm-by-marwan' ); ?></span>
             </div>
         </div>
     </div>
@@ -93,11 +93,11 @@ $trend = $trend_labels[ $perf['trend'] ?? 'stable' ] ?? $trend_labels['stable'];
     <!-- ── 7-Day History Chart ── -->
     <div class="spm-panel">
         <div class="spm-panel__header">
-            <h2 class="spm-panel__title"><?php esc_html_e( '7-Day Load Time Trend', 'smart-performance-monitor' ); ?></h2>
+            <h2 class="spm-panel__title"><?php esc_html_e( '7-Day Load Time Trend', 'spm-by-marwan' ); ?></h2>
         </div>
         <div class="spm-panel__body">
             <?php if ( empty( $history ) ) : ?>
-                <p class="spm-detail-empty"><?php esc_html_e( 'Insufficient data for trend visualization.', 'smart-performance-monitor' ); ?></p>
+                <p class="spm-detail-empty"><?php esc_html_e( 'Insufficient data for trend visualization.', 'spm-by-marwan' ); ?></p>
             <?php else : 
                 $max_ms = 100;
                 foreach ( $history as $day ) {
@@ -120,7 +120,7 @@ $trend = $trend_labels[ $perf['trend'] ?? 'stable' ] ?? $trend_labels['stable'];
                             <div class="spm-history-bar-wrap">
                                 <div class="spm-history-bar spm-history-bar--<?php echo esc_attr( $color_class ); ?>" 
                                      style="height: <?php echo esc_attr( $height ); ?>%;"
-                                     title="<?php printf( esc_attr__( '%s: %.2f ms', 'smart-performance-monitor' ), esc_attr( $date_str ), $avg_ms ); ?>">
+                                     title="<?php printf( esc_attr__( '%s: %.2f ms', 'spm-by-marwan' ), esc_attr( $date_str ), $avg_ms ); ?>">
                                 </div>
                                 <span class="spm-history-bar__label"><?php echo esc_html( $day_label ); ?></span>
                             </div>

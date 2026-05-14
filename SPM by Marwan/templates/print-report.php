@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php esc_html_e( 'Plugin Diagnostic Report', 'smart-performance-monitor' ); ?></title>
+    <title><?php esc_html_e( 'Plugin Diagnostic Report', 'spm-by-marwan' ); ?></title>
     <?php
     wp_enqueue_style( 'spmbyma-print', SPMBYMA_PLUGIN_URL . 'assets/css/print-report.css', [], SPMBYMA_VERSION );
     wp_print_styles( 'spmbyma-print' );
@@ -23,37 +23,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 <body onload="window.print()">
 
     <div class="no-print" style="background: #3b82f6; color: #fff; padding: 10px 20px; margin: -40px -40px 40px -40px; display: flex; justify-content: space-between; align-items: center;">
-        <span><?php esc_html_e( 'Report Preview — Use browser print dialog to save as PDF', 'smart-performance-monitor' ); ?></span>
+        <span><?php esc_html_e( 'Report Preview — Use browser print dialog to save as PDF', 'spm-by-marwan' ); ?></span>
         <button onclick="window.close()" style="background: rgba(255,255,255,0.2); border: 1px solid #fff; color: #fff; padding: 5px 15px; border-radius: 4px; cursor: pointer;">
-            <?php esc_html_e( 'Close', 'smart-performance-monitor' ); ?>
+            <?php esc_html_e( 'Close', 'spm-by-marwan' ); ?>
         </button>
     </div>
 
     <header class="report-header">
         <div>
-            <h1 class="report-title"><?php esc_html_e( 'Plugin Diagnostic Report', 'smart-performance-monitor' ); ?></h1>
+            <h1 class="report-title"><?php esc_html_e( 'Plugin Diagnostic Report', 'spm-by-marwan' ); ?></h1>
             <p class="report-meta"><?php echo esc_html( get_bloginfo( 'name' ) ); ?> · <?php echo esc_html( get_site_url() ); ?></p>
         </div>
         <div class="report-meta">
-            <?php printf( esc_html__( 'Generated: %s', 'smart-performance-monitor' ), esc_html( $snap['generated_at'] ) ); ?>
+            <?php printf( esc_html__( 'Generated: %s', 'spm-by-marwan' ), esc_html( $snap['generated_at'] ) ); ?>
         </div>
     </header>
 
     <div class="summary-grid">
         <div class="summary-card">
-            <div class="summary-label"><?php esc_html_e( 'Health Score', 'smart-performance-monitor' ); ?></div>
+            <div class="summary-label"><?php esc_html_e( 'Health Score', 'spm-by-marwan' ); ?></div>
             <div class="summary-value"><?php echo esc_html( $snap['summary']['avg_score'] ); ?></div>
         </div>
         <div class="summary-card">
-            <div class="summary-label"><?php esc_html_e( 'Plugins Tracked', 'smart-performance-monitor' ); ?></div>
+            <div class="summary-label"><?php esc_html_e( 'Plugins Tracked', 'spm-by-marwan' ); ?></div>
             <div class="summary-value"><?php echo esc_html( $snap['summary']['total_plugins'] ); ?></div>
         </div>
         <div class="summary-card">
-            <div class="summary-label"><?php esc_html_e( 'Total Errors', 'smart-performance-monitor' ); ?></div>
+            <div class="summary-label"><?php esc_html_e( 'Total Errors', 'spm-by-marwan' ); ?></div>
             <div class="summary-value"><?php echo esc_html( $snap['summary']['total_errors'] ); ?></div>
         </div>
         <div class="summary-card">
-            <div class="summary-label"><?php esc_html_e( 'Analysis Window', 'smart-performance-monitor' ); ?></div>
+            <div class="summary-label"><?php esc_html_e( 'Analysis Window', 'spm-by-marwan' ); ?></div>
             <div class="summary-value">30 Days</div>
         </div>
     </div>
@@ -61,12 +61,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     <table>
         <thead>
             <tr>
-                <th><?php esc_html_e( 'Plugin', 'smart-performance-monitor' ); ?></th>
-                <th><?php esc_html_e( 'Avg Speed', 'smart-performance-monitor' ); ?></th>
-                <th><?php esc_html_e( 'Errors', 'smart-performance-monitor' ); ?></th>
-                <th><?php esc_html_e( 'Score', 'smart-performance-monitor' ); ?></th>
-                <th><?php esc_html_e( 'Grade', 'smart-performance-monitor' ); ?></th>
-                <th><?php esc_html_e( 'Trend', 'smart-performance-monitor' ); ?></th>
+                <th><?php esc_html_e( 'Plugin', 'spm-by-marwan' ); ?></th>
+                <th><?php esc_html_e( 'Avg Speed', 'spm-by-marwan' ); ?></th>
+                <th><?php esc_html_e( 'Errors', 'spm-by-marwan' ); ?></th>
+                <th><?php esc_html_e( 'Score', 'spm-by-marwan' ); ?></th>
+                <th><?php esc_html_e( 'Grade', 'spm-by-marwan' ); ?></th>
+                <th><?php esc_html_e( 'Trend', 'spm-by-marwan' ); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     </table>
 
     <footer style="margin-top: 60px; border-top: 1px solid #e2e8f0; padding-top: 20px; font-size: 12px; color: #94a3b8; text-align: center;">
-        <p><?php esc_html_e( 'Confidential Diagnostic Report · Generated by Smart Plugin Monitor', 'smart-performance-monitor' ); ?></p>
+        <p><?php esc_html_e( 'Confidential Diagnostic Report · Generated by Smart Plugin Monitor', 'spm-by-marwan' ); ?></p>
     </footer>
 
 </body>

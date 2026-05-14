@@ -29,7 +29,7 @@ class SPMBYMA_Dashboard {
      */
     public function render(): void {
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_die( esc_html__( 'Unauthorized access.', 'smart-performance-monitor' ) );
+            wp_die( esc_html__( 'Unauthorized access.', 'spm-by-marwan' ) );
         }
 
         $period  = SPMBYMA_Data_Service::resolve_period();
@@ -61,11 +61,11 @@ class SPMBYMA_Dashboard {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                 </div>
                 <div class="spm-isolation-banner__text">
-                    <strong><?php esc_html_e( 'Isolation Mode Active:', 'smart-performance-monitor' ); ?></strong>
-                    <?php printf( esc_html__( '"%s" is temporarily deactivated for testing.', 'smart-performance-monitor' ), esc_html( $isolation_target ) ); ?>
+                    <strong><?php esc_html_e( 'Isolation Mode Active:', 'spm-by-marwan' ); ?></strong>
+                    <?php printf( esc_html__( '"%s" is temporarily deactivated for testing.', 'spm-by-marwan' ), esc_html( $isolation_target ) ); ?>
                 </div>
                 <button class="spm-btn spm-btn--white spm-btn--sm" data-spm-action="restore">
-                    <?php esc_html_e( 'End Isolation & Restore', 'smart-performance-monitor' ); ?>
+                    <?php esc_html_e( 'End Isolation & Restore', 'spm-by-marwan' ); ?>
                 </button>
             </div>
             <?php endif; ?>
@@ -78,11 +78,11 @@ class SPMBYMA_Dashboard {
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
                         </div>
                         <div>
-                            <h1 class="spm-header__title"><?php esc_html_e( 'Plugin Monitor', 'smart-performance-monitor' ); ?></h1>
+                            <h1 class="spm-header__title"><?php esc_html_e( 'Plugin Monitor', 'spm-by-marwan' ); ?></h1>
                             <p class="spm-header__sub">
                                 <?php
                                 printf(
-                                    esc_html__( '%d plugins tracked · Last %s', 'smart-performance-monitor' ),
+                                    esc_html__( '%d plugins tracked · Last %s', 'spm-by-marwan' ),
                                     $summary['total_plugins'],
                                     esc_html( $period_label )
                                 );
@@ -92,23 +92,23 @@ class SPMBYMA_Dashboard {
                     </div>
                     <div class="spm-header__right">
                         <div class="spm-header__actions">
-                            <button class="spm-hdr-btn" data-spm-action="scan" title="<?php esc_attr_e( 'Re-run performance scan', 'smart-performance-monitor' ); ?>">
+                            <button class="spm-hdr-btn" data-spm-action="scan" title="<?php esc_attr_e( 'Re-run performance scan', 'spm-by-marwan' ); ?>">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9"/><polyline points="21 3 21 9 15 9"/></svg>
-                                <?php esc_html_e( 'Scan', 'smart-performance-monitor' ); ?>
+                                <?php esc_html_e( 'Scan', 'spm-by-marwan' ); ?>
                             </button>
-                            <button class="spm-hdr-btn" data-spm-action="deep-scan" title="<?php esc_attr_e( 'Force-refresh license verification', 'smart-performance-monitor' ); ?>">
+                            <button class="spm-hdr-btn" data-spm-action="deep-scan" title="<?php esc_attr_e( 'Force-refresh license verification', 'spm-by-marwan' ); ?>">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                <?php esc_html_e( 'Deep Scan', 'smart-performance-monitor' ); ?>
+                                <?php esc_html_e( 'Deep Scan', 'spm-by-marwan' ); ?>
                             </button>
                             <div class="spm-export-dropdown">
-                                <button class="spm-hdr-btn spm-export-toggle" title="<?php esc_attr_e( 'Download diagnostic reports', 'smart-performance-monitor' ); ?>">
+                                <button class="spm-hdr-btn spm-export-toggle" title="<?php esc_attr_e( 'Download diagnostic reports', 'spm-by-marwan' ); ?>">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                                    <?php esc_html_e( 'Export', 'smart-performance-monitor' ); ?>
+                                    <?php esc_html_e( 'Export', 'spm-by-marwan' ); ?>
                                 </button>
                                 <div class="spm-export-menu">
-                                    <button data-spm-action="export-json"><?php esc_html_e( 'JSON Report', 'smart-performance-monitor' ); ?></button>
-                                    <button data-spm-action="export-csv"><?php esc_html_e( 'CSV Spreadsheet', 'smart-performance-monitor' ); ?></button>
-                                    <button data-spm-action="export-pdf"><?php esc_html_e( 'PDF Diagnostic (Print)', 'smart-performance-monitor' ); ?></button>
+                                    <button data-spm-action="export-json"><?php esc_html_e( 'JSON Report', 'spm-by-marwan' ); ?></button>
+                                    <button data-spm-action="export-csv"><?php esc_html_e( 'CSV Spreadsheet', 'spm-by-marwan' ); ?></button>
+                                    <button data-spm-action="export-pdf"><?php esc_html_e( 'PDF Diagnostic (Print)', 'spm-by-marwan' ); ?></button>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +116,7 @@ class SPMBYMA_Dashboard {
                         <span class="spm-header__logcount">
                             <?php
                             printf(
-                                esc_html__( '%s log entries', 'smart-performance-monitor' ),
+                                esc_html__( '%s log entries', 'spm-by-marwan' ),
                                 esc_html( number_format_i18n( $total_logs ) )
                             );
                             ?>
@@ -137,25 +137,25 @@ class SPMBYMA_Dashboard {
                 <div class="spm-kpi-grid">
                     <?php
                     $this->render_kpi_card(
-                        esc_html__( 'Tracked', 'smart-performance-monitor' ),
+                        esc_html__( 'Tracked', 'spm-by-marwan' ),
                         (string) $summary['total_plugins'],
                         'neutral',
                         '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18 22 12 16 6"/><path d="M8 6 2 12 8 18"/></svg>'
                     );
                     $this->render_kpi_card(
-                        esc_html__( 'Slow Plugins', 'smart-performance-monitor' ),
+                        esc_html__( 'Slow Plugins', 'spm-by-marwan' ),
                         (string) $summary['slow_plugins'],
                         $summary['slow_plugins'] > 0 ? 'danger' : 'success',
                         '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>'
                     );
                     $this->render_kpi_card(
-                        sprintf( esc_html__( 'Errors (%s)', 'smart-performance-monitor' ), esc_html( $period_label ) ),
+                        sprintf( esc_html__( 'Errors (%s)', 'spm-by-marwan' ), esc_html( $period_label ) ),
                         (string) $total_errors,
                         $total_errors > 0 ? 'warning' : 'success',
                         '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'
                     );
                     $this->render_kpi_card(
-                        esc_html__( 'Avg Score', 'smart-performance-monitor' ),
+                        esc_html__( 'Avg Score', 'spm-by-marwan' ),
                         number_format( $summary['avg_score'], 1 ),
                         $summary['avg_score'] >= 75 ? 'success' : ( $summary['avg_score'] >= 50 ? 'warning' : 'danger' ),
                         '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>'
@@ -170,13 +170,13 @@ class SPMBYMA_Dashboard {
                 <!-- Left: Plugin Health Cards -->
                 <div class="spm-panel" id="spm-plugins-panel">
                     <div class="spm-panel__header">
-                        <h2 class="spm-panel__title"><?php esc_html_e( 'Plugin Health', 'smart-performance-monitor' ); ?></h2>
+                        <h2 class="spm-panel__title"><?php esc_html_e( 'Plugin Health', 'spm-by-marwan' ); ?></h2>
                         <span class="spm-panel__badge"><?php echo esc_html( count( $plugins ) ); ?></span>
                     </div>
                     <div class="spm-panel__body spm-plugin-list">
                         <?php if ( empty( $plugins ) ) : ?>
                             <div class="spm-empty-state">
-                                <p><?php esc_html_e( 'No analysis data yet. Data will appear after a few page loads.', 'smart-performance-monitor' ); ?></p>
+                                <p><?php esc_html_e( 'No analysis data yet. Data will appear after a few page loads.', 'spm-by-marwan' ); ?></p>
                             </div>
                         <?php else : ?>
                             <?php foreach ( $plugins as $p ) : ?>
@@ -223,7 +223,7 @@ class SPMBYMA_Dashboard {
                         <div class="spm-panel__header spm-panel__header--danger">
                             <h2 class="spm-panel__title">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                                <?php esc_html_e( 'Slow Plugins', 'smart-performance-monitor' ); ?>
+                                <?php esc_html_e( 'Slow Plugins', 'spm-by-marwan' ); ?>
                             </h2>
                             <span class="spm-panel__badge spm-panel__badge--danger"><?php echo esc_html( count( $slow_plugins ) ); ?></span>
                         </div>
@@ -237,7 +237,7 @@ class SPMBYMA_Dashboard {
                             <p class="spm-alert-note">
                                 <?php
                                 printf(
-                                    esc_html__( 'Threshold: %s ms average load time', 'smart-performance-monitor' ),
+                                    esc_html__( 'Threshold: %s ms average load time', 'spm-by-marwan' ),
                                     '500'
                                 );
                                 ?>
@@ -249,13 +249,13 @@ class SPMBYMA_Dashboard {
                     <!-- Recent errors feed -->
                     <div class="spm-panel" id="spm-errors-panel">
                         <div class="spm-panel__header">
-                            <h2 class="spm-panel__title"><?php esc_html_e( 'Recent Errors', 'smart-performance-monitor' ); ?></h2>
+                            <h2 class="spm-panel__title"><?php esc_html_e( 'Recent Errors', 'spm-by-marwan' ); ?></h2>
                             <div style="display:flex; align-items:center; gap: 8px;">
                                 <span class="spm-panel__badge <?php echo esc_attr( count( $recent_errors ) > 0 ? 'spm-panel__badge--warning' : '' ); ?>">
                                     <?php echo esc_html( count( $recent_errors ) ); ?>
                                 </span>
                                 <?php if ( ! empty( $recent_errors ) ) : ?>
-                                    <button class="spm-btn spm-btn--sm spm-btn--white" data-spm-action="wipe-logs" title="<?php esc_attr_e( 'Wipe all errors', 'smart-performance-monitor' ); ?>" style="padding: 2px 6px !important; min-height: 24px; color: #ef4444 !important;">
+                                    <button class="spm-btn spm-btn--sm spm-btn--white" data-spm-action="wipe-logs" title="<?php esc_attr_e( 'Wipe all errors', 'spm-by-marwan' ); ?>" style="padding: 2px 6px !important; min-height: 24px; color: #ef4444 !important;">
                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
                                     </button>
                                 <?php endif; ?>
@@ -265,7 +265,7 @@ class SPMBYMA_Dashboard {
                             <?php if ( empty( $recent_errors ) ) : ?>
                                 <div class="spm-empty-state spm-empty-state--compact">
                                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                                    <p><?php esc_html_e( 'No recent errors — everything looks healthy!', 'smart-performance-monitor' ); ?></p>
+                                    <p><?php esc_html_e( 'No recent errors — everything looks healthy!', 'spm-by-marwan' ); ?></p>
                                 </div>
                             <?php else : ?>
                                 <?php foreach ( $recent_errors as $err ) : ?>
@@ -294,11 +294,11 @@ class SPMBYMA_Dashboard {
 
             <!-- ── Footer ── -->
             <footer class="spm-footer">
-                <span><?php esc_html_e( 'Logs older than 30 days are automatically purged.', 'smart-performance-monitor' ); ?></span>
+                <span><?php esc_html_e( 'Logs older than 30 days are automatically purged.', 'spm-by-marwan' ); ?></span>
                 <span>
                     <?php
                     printf(
-                        esc_html__( 'Report generated %s', 'smart-performance-monitor' ),
+                        esc_html__( 'Report generated %s', 'spm-by-marwan' ),
                         esc_html( $snap['generated_at'] )
                     );
                     ?>
@@ -325,7 +325,7 @@ class SPMBYMA_Dashboard {
             <div class="spm-gauge__ring" style="--spm-pct: <?php echo esc_attr( $pct ); ?>;">
                 <div class="spm-gauge__inner">
                     <span class="spm-gauge__value"><?php echo esc_html( number_format( $score, 0 ) ); ?></span>
-                    <span class="spm-gauge__label"><?php esc_html_e( 'Health Score', 'smart-performance-monitor' ); ?></span>
+                    <span class="spm-gauge__label"><?php esc_html_e( 'Health Score', 'spm-by-marwan' ); ?></span>
                     <span class="spm-gauge__grade spm-grade-label--<?php echo esc_attr( $color_class ); ?>"><?php echo esc_html( $grade ); ?></span>
                 </div>
             </div>
@@ -395,19 +395,19 @@ class SPMBYMA_Dashboard {
                 <div class="spm-panel__header">
                     <h2 class="spm-panel__title">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        <?php esc_html_e( 'License & Source Verification', 'smart-performance-monitor' ); ?>
+                        <?php esc_html_e( 'License & Source Verification', 'spm-by-marwan' ); ?>
                     </h2>
                     <div class="spm-license-summary">
                         <span class="spm-license-pill spm-license-pill--verified">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                            <?php echo esc_html( $summary['verified'] ); ?> <?php esc_html_e( 'Verified', 'smart-performance-monitor' ); ?>
+                            <?php echo esc_html( $summary['verified'] ); ?> <?php esc_html_e( 'Verified', 'spm-by-marwan' ); ?>
                         </span>
                         <span class="spm-license-pill spm-license-pill--unverified">
-                            <?php echo esc_html( $summary['unverified'] ); ?> <?php esc_html_e( 'Unverified', 'smart-performance-monitor' ); ?>
+                            <?php echo esc_html( $summary['unverified'] ); ?> <?php esc_html_e( 'Unverified', 'spm-by-marwan' ); ?>
                         </span>
                         <?php if ( $summary['needs_review'] > 0 ) : ?>
                         <span class="spm-license-pill spm-license-pill--review">
-                            <?php echo esc_html( $summary['needs_review'] ); ?> <?php esc_html_e( 'Needs Review', 'smart-performance-monitor' ); ?>
+                            <?php echo esc_html( $summary['needs_review'] ); ?> <?php esc_html_e( 'Needs Review', 'spm-by-marwan' ); ?>
                         </span>
                         <?php endif; ?>
                     </div>
@@ -415,7 +415,7 @@ class SPMBYMA_Dashboard {
                 <div class="spm-panel__body spm-license-list">
                     <?php if ( empty( $plugins ) ) : ?>
                         <div class="spm-empty-state spm-empty-state--compact">
-                            <p><?php esc_html_e( 'No plugins found.', 'smart-performance-monitor' ); ?></p>
+                            <p><?php esc_html_e( 'No plugins found.', 'spm-by-marwan' ); ?></p>
                         </div>
                     <?php else : ?>
                         <?php foreach ( $plugins as $p ) : ?>
@@ -450,7 +450,7 @@ class SPMBYMA_Dashboard {
                                     <span class="spm-source-badge spm-source-badge--<?php echo esc_attr( $p['source'] ); ?>">
                                         <?php echo esc_html( $p['source_label'] ); ?>
                                     </span>
-                                    <div class="spm-confidence" title="<?php echo esc_attr( sprintf( __( 'Confidence: %d%%', 'smart-performance-monitor' ), (int) $p['confidence'] ) ); ?>">
+                                    <div class="spm-confidence" title="<?php echo esc_attr( sprintf( __( 'Confidence: %d%%', 'spm-by-marwan' ), (int) $p['confidence'] ) ); ?>">
                                         <div class="spm-confidence__bar">
                                             <div class="spm-confidence__fill spm-confidence__fill--<?php echo esc_attr( $status_class ); ?>"
                                                  style="width: <?php echo esc_attr( $p['confidence'] ); ?>%;">
@@ -461,9 +461,9 @@ class SPMBYMA_Dashboard {
                                     <span class="spm-verification-badge spm-verification-badge--<?php echo esc_attr( $status_class ); ?>">
                                         <?php
                                         $badge_labels = [
-                                            SPMBYMA_License_Detector::STATUS_VERIFIED     => __( 'Verified', 'smart-performance-monitor' ),
-                                            SPMBYMA_License_Detector::STATUS_UNVERIFIED   => __( 'Unverified', 'smart-performance-monitor' ),
-                                            SPMBYMA_License_Detector::STATUS_NEEDS_REVIEW => __( 'Needs Review', 'smart-performance-monitor' ),
+                                            SPMBYMA_License_Detector::STATUS_VERIFIED     => __( 'Verified', 'spm-by-marwan' ),
+                                            SPMBYMA_License_Detector::STATUS_UNVERIFIED   => __( 'Unverified', 'spm-by-marwan' ),
+                                            SPMBYMA_License_Detector::STATUS_NEEDS_REVIEW => __( 'Needs Review', 'spm-by-marwan' ),
                                         ];
                                         echo esc_html( $badge_labels[ $p['verification'] ] ?? $p['verification'] );
                                         ?>

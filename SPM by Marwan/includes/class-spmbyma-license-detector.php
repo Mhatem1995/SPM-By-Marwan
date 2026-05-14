@@ -204,14 +204,14 @@ class SPMBYMA_License_Detector {
 
         // ── Step 1: Determine source ──
         $source       = self::SOURCE_UNKNOWN;
-        $source_label = __( 'Unknown Source', 'smart-performance-monitor' );
+        $source_label = __( 'Unknown Source', 'spm-by-marwan' );
 
         // Check WordPress.org API.
         $slug = $this->extract_slug( $basename );
         if ( $this->is_on_wporg( $slug ) ) {
             $source       = self::SOURCE_WPORG;
-            $source_label = __( 'WordPress.org', 'smart-performance-monitor' );
-            $notes[]      = __( 'Listed on WordPress.org plugin directory', 'smart-performance-monitor' );
+            $source_label = __( 'WordPress.org', 'spm-by-marwan' );
+            $notes[]      = __( 'Listed on WordPress.org plugin directory', 'spm-by-marwan' );
         }
 
         // Check premium vendor patterns.
@@ -222,7 +222,7 @@ class SPMBYMA_License_Detector {
                 $source_label = $vendor;
                 $notes[]      = sprintf(
                     /* translators: %s: vendor name */
-                    __( 'Identified as premium plugin from %s', 'smart-performance-monitor' ),
+                    __( 'Identified as premium plugin from %s', 'spm-by-marwan' ),
                     $vendor
                 );
             }
@@ -232,8 +232,8 @@ class SPMBYMA_License_Detector {
         if ( self::SOURCE_UNKNOWN === $source ) {
             if ( $this->looks_custom( $basename, $data ) ) {
                 $source       = self::SOURCE_CUSTOM;
-                $source_label = __( 'Custom / In-house', 'smart-performance-monitor' );
-                $notes[]      = __( 'Appears to be a custom-developed plugin', 'smart-performance-monitor' );
+                $source_label = __( 'Custom / In-house', 'spm-by-marwan' );
+                $notes[]      = __( 'Appears to be a custom-developed plugin', 'spm-by-marwan' );
             }
         }
 
@@ -242,18 +242,18 @@ class SPMBYMA_License_Detector {
         if ( empty( $license_normalized ) ) {
             $flags[]     = 'no-license';
             $confidence -= 15;
-            $notes[]     = __( 'No license header declared', 'smart-performance-monitor' );
+            $notes[]     = __( 'No license header declared', 'spm-by-marwan' );
         } elseif ( $this->is_gpl_compatible( $license_normalized ) ) {
             $notes[] = sprintf(
                 /* translators: %s: license string */
-                __( 'License: %s (GPL-compatible)', 'smart-performance-monitor' ),
+                __( 'License: %s (GPL-compatible)', 'spm-by-marwan' ),
                 $license
             );
         } else {
             $flags[] = 'non-gpl';
             $notes[] = sprintf(
                 /* translators: %s: license string */
-                __( 'License: %s (non-GPL)', 'smart-performance-monitor' ),
+                __( 'License: %s (non-GPL)', 'spm-by-marwan' ),
                 $license
             );
         }
@@ -282,7 +282,7 @@ class SPMBYMA_License_Detector {
             foreach ( $suspicious as $pattern => $description ) {
                 $notes[] = sprintf(
                     /* translators: %s: pattern description */
-                    __( 'Code review recommended: %s', 'smart-performance-monitor' ),
+                    __( 'Code review recommended: %s', 'spm-by-marwan' ),
                     $description
                 );
             }
@@ -297,7 +297,7 @@ class SPMBYMA_License_Detector {
             foreach ( $folder_flags as $ff ) {
                 $notes[] = sprintf(
                     /* translators: %s: flag key */
-                    __( 'Folder pattern flag: %s', 'smart-performance-monitor' ),
+                    __( 'Folder pattern flag: %s', 'spm-by-marwan' ),
                     str_replace( '-', ' ', $ff )
                 );
             }
@@ -326,7 +326,7 @@ class SPMBYMA_License_Detector {
             'author'           => $author,
             'source'           => $source,
             'source_label'     => $source_label,
-            'license'          => $license ?: __( 'Not specified', 'smart-performance-monitor' ),
+            'license'          => $license ?: __( 'Not specified', 'spm-by-marwan' ),
             'verification'     => $verification,
             'confidence'       => $confidence,
             'flags'            => $flags,

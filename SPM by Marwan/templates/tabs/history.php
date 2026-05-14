@@ -21,7 +21,7 @@ $rollback = $data['rollback'] ?? [];
     <!-- ── Rollback Readiness Engine ── -->
     <div class="spm-panel spm-panel--readiness">
         <div class="spm-panel__header">
-            <h2 class="spm-panel__title"><?php esc_html_e( 'Rollback Readiness', 'smart-performance-monitor' ); ?></h2>
+            <h2 class="spm-panel__title"><?php esc_html_e( 'Rollback Readiness', 'spm-by-marwan' ); ?></h2>
             <span class="spm-badge spm-badge--<?php echo esc_attr( $rollback['status'] ?? '' ); ?>"><?php echo esc_html( $rollback['label'] ?? '' ); ?></span>
         </div>
         <div class="spm-panel__body">
@@ -47,7 +47,7 @@ $rollback = $data['rollback'] ?? [];
     <!-- ── Comparison Engine ── -->
     <div class="spm-details-stats-grid">
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( 'Today vs 7-Day Avg', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( 'Today vs 7-Day Avg', 'spm-by-marwan' ); ?></span>
             <div class="spm-trend-compare">
                 <span class="spm-trend-compare__val"><?php echo (float) $trends['avg_24h']; ?> <small>ms</small></span>
                 <span class="spm-trend-badge spm-trend-badge--<?php echo esc_attr( $trends['today_vs_7d']['status'] ?? '' ); ?>">
@@ -65,7 +65,7 @@ $rollback = $data['rollback'] ?? [];
         </div>
         
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( '7-Day vs 30-Day Avg', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( '7-Day vs 30-Day Avg', 'spm-by-marwan' ); ?></span>
             <div class="spm-trend-compare">
                 <span class="spm-trend-compare__val"><?php echo (float) $trends['avg_7d']; ?> <small>ms</small></span>
                 <span class="spm-trend-badge spm-trend-badge--<?php echo esc_attr( $trends['7d_vs_30d']['status'] ?? '' ); ?>">
@@ -78,7 +78,7 @@ $rollback = $data['rollback'] ?? [];
         </div>
 
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( 'Trend Sentiment', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( 'Trend Sentiment', 'spm-by-marwan' ); ?></span>
             <span class="spm-detail-card__value">
                 <span class="spm-sentiment spm-sentiment--<?php echo esc_attr( $trends['primary_trend'] ?? '' ); ?>">
                     <?php echo esc_html( ucfirst( $trends['primary_trend'] ?? '' ) ); ?>
@@ -93,20 +93,20 @@ $rollback = $data['rollback'] ?? [];
     <!-- ── Version Correlation ── -->
     <div class="spm-panel">
         <div class="spm-panel__header">
-            <h2 class="spm-panel__title"><?php esc_html_e( 'Version Correlation', 'smart-performance-monitor' ); ?></h2>
-            <p class="spm-panel__desc"><?php esc_html_e( 'Performance tracked across different plugin releases.', 'smart-performance-monitor' ); ?></p>
+            <h2 class="spm-panel__title"><?php esc_html_e( 'Version Correlation', 'spm-by-marwan' ); ?></h2>
+            <p class="spm-panel__desc"><?php esc_html_e( 'Performance tracked across different plugin releases.', 'spm-by-marwan' ); ?></p>
         </div>
         <div class="spm-panel__body">
             <?php if ( empty( $trends['versions'] ) ) : ?>
-                <p class="spm-detail-empty"><?php esc_html_e( 'No version history data yet.', 'smart-performance-monitor' ); ?></p>
+                <p class="spm-detail-empty"><?php esc_html_e( 'No version history data yet.', 'spm-by-marwan' ); ?></p>
             <?php else : ?>
                 <div class="spm-version-history">
                     <table class="spm-version-table">
                         <thead>
                             <tr>
-                                <th><?php esc_html_e( 'Version', 'smart-performance-monitor' ); ?></th>
-                                <th><?php esc_html_e( 'First Seen', 'smart-performance-monitor' ); ?></th>
-                                <th><?php esc_html_e( 'Status', 'smart-performance-monitor' ); ?></th>
+                                <th><?php esc_html_e( 'Version', 'spm-by-marwan' ); ?></th>
+                                <th><?php esc_html_e( 'First Seen', 'spm-by-marwan' ); ?></th>
+                                <th><?php esc_html_e( 'Status', 'spm-by-marwan' ); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -117,12 +117,12 @@ $rollback = $data['rollback'] ?? [];
                                 <td>
                                     <strong>v<?php echo esc_html( $v['plugin_version'] ?? '' ); ?></strong>
                                     <?php if ( $is_current ) : ?>
-                                        <span class="spm-badge spm-badge--success"><?php esc_html_e( 'Active', 'smart-performance-monitor' ); ?></span>
+                                        <span class="spm-badge spm-badge--success"><?php esc_html_e( 'Active', 'spm-by-marwan' ); ?></span>
                                     <?php endif; ?>
                                 </td>
                                 <td><?php echo esc_html( date_i18n( get_option('date_format') . ' ' . get_option('time_format'), strtotime($v['first_seen']) ) ); ?></td>
                                 <td>
-                                    <span class="spm-dot spm-dot--success"></span> <?php esc_html_e( 'Logged', 'smart-performance-monitor' ); ?>
+                                    <span class="spm-dot spm-dot--success"></span> <?php esc_html_e( 'Logged', 'spm-by-marwan' ); ?>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -136,12 +136,12 @@ $rollback = $data['rollback'] ?? [];
     <!-- ── 30-Day Activity Sparkline (Conceptual Placeholder) ── -->
     <div class="spm-panel">
         <div class="spm-panel__header">
-            <h2 class="spm-panel__title"><?php esc_html_e( '30-Day Performance Trajectory', 'smart-performance-monitor' ); ?></h2>
+            <h2 class="spm-panel__title"><?php esc_html_e( '30-Day Performance Trajectory', 'spm-by-marwan' ); ?></h2>
         </div>
         <div class="spm-panel__body">
              <div class="spm-sparkline-wrap">
                  <!-- In a real scenario, we'd loop through daily averages here -->
-                 <p class="spm-detail-empty"><?php esc_html_e( 'Historical charts are building as data is collected...', 'smart-performance-monitor' ); ?></p>
+                 <p class="spm-detail-empty"><?php esc_html_e( 'Historical charts are building as data is collected...', 'spm-by-marwan' ); ?></p>
              </div>
         </div>
     </div>

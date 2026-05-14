@@ -8,7 +8,7 @@
  * Author URI: https://github.com/Mhatem1995/SPM-By-Marwan
  * License:     GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: smart-performance-monitor
+ * Text Domain: spm-by-marwan
  * Requires at least: 5.6
  * Requires PHP: 7.4
  */
@@ -58,7 +58,7 @@ register_activation_hook(__FILE__, 'spmbyma_activate');
 function spmbyma_load_textdomain()
 {
     load_plugin_textdomain(
-        'smart-performance-monitor',
+        'spm-by-marwan',
         false,
         dirname( plugin_basename( __FILE__ ) ) . '/languages'
     );

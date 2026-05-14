@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Map Trust Status to Badges
 $trust_map = [
-    'verified'     => [ 'label' => __( 'Verified', 'smart-performance-monitor' ),   'class' => 'success' ],
-    'unverified'   => [ 'label' => __( 'Unknown', 'smart-performance-monitor' ),    'class' => 'warning' ],
-    'needs-review' => [ 'label' => __( 'Suspicious', 'smart-performance-monitor' ), 'class' => 'danger' ],
+    'verified'     => [ 'label' => __( 'Verified', 'spm-by-marwan' ),   'class' => 'success' ],
+    'unverified'   => [ 'label' => __( 'Unknown', 'spm-by-marwan' ),    'class' => 'warning' ],
+    'needs-review' => [ 'label' => __( 'Suspicious', 'spm-by-marwan' ), 'class' => 'danger' ],
 ];
 
 $trust_status = $trust_map[ $trust['verification'] ] ?? $trust_map['unverified'];
@@ -34,7 +34,7 @@ $affected_count = count( $affected_files );
     <!-- ── Trust Overview ── -->
     <div class="spm-details-stats-grid">
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( 'Trust Classification', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( 'Trust Classification', 'spm-by-marwan' ); ?></span>
             <span class="spm-detail-card__value">
                  <span class="spm-trust-badge spm-trust-badge--large spm-trust-badge--<?php echo esc_attr( $trust_status['class'] ?? '' ); ?>">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -42,27 +42,27 @@ $affected_count = count( $affected_files );
                 </span>
             </span>
             <div class="spm-detail-card__footer">
-                <span><?php printf( esc_html__( 'Confidence Score: %d%%', 'smart-performance-monitor' ), $trust['confidence'] ); ?></span>
+                <span><?php printf( esc_html__( 'Confidence Score: %d%%', 'spm-by-marwan' ), $trust['confidence'] ); ?></span>
             </div>
         </div>
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( 'Security Risk Score', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( 'Security Risk Score', 'spm-by-marwan' ); ?></span>
             <span class="spm-detail-card__value">
                 <span class="spm-text--<?php echo esc_attr( $security['risk_level'] === 'clean' ? 'success' : ($security['risk_level'] === 'medium' ? 'warning' : 'danger') ); ?>">
                     <?php echo (int) $security['score']; ?>
                 </span><small>/100</small>
             </span>
             <div class="spm-detail-card__footer">
-                <span><?php printf( esc_html__( 'Risk Level: %s', 'smart-performance-monitor' ), ucfirst($security['risk_level']) ); ?></span>
+                <span><?php printf( esc_html__( 'Risk Level: %s', 'spm-by-marwan' ), ucfirst($security['risk_level']) ); ?></span>
             </div>
         </div>
         <div class="spm-detail-card">
-            <span class="spm-detail-card__label"><?php esc_html_e( 'Suspicious Calls', 'smart-performance-monitor' ); ?></span>
+            <span class="spm-detail-card__label"><?php esc_html_e( 'Suspicious Calls', 'spm-by-marwan' ); ?></span>
             <span class="spm-detail-card__value <?php echo esc_attr( $security['findings_count'] > 0 ? 'spm-text--danger' : '' ); ?>">
                 <?php echo (int) $security['findings_count']; ?>
             </span>
             <div class="spm-detail-card__footer">
-                <span><?php printf( esc_html__( 'Across %d affected files', 'smart-performance-monitor' ), $affected_count ); ?></span>
+                <span><?php printf( esc_html__( 'Across %d affected files', 'spm-by-marwan' ), $affected_count ); ?></span>
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@ $affected_count = count( $affected_files );
     <!-- ── Verification Grid ── -->
     <div class="spm-panel">
         <div class="spm-panel__header">
-            <h2 class="spm-panel__title"><?php esc_html_e( 'Identity & Source Verification', 'smart-performance-monitor' ); ?></h2>
+            <h2 class="spm-panel__title"><?php esc_html_e( 'Identity & Source Verification', 'spm-by-marwan' ); ?></h2>
         </div>
         <div class="spm-panel__body">
             <div class="spm-verification-grid">
@@ -79,7 +79,7 @@ $affected_count = count( $affected_files );
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                     </div>
                     <div class="spm-v-content">
-                        <span class="spm-v-label"><?php esc_html_e( 'Source Identification', 'smart-performance-monitor' ); ?></span>
+                        <span class="spm-v-label"><?php esc_html_e( 'Source Identification', 'spm-by-marwan' ); ?></span>
                         <span class="spm-v-value"><?php echo esc_html( $trust['source_label'] ?? '' ); ?></span>
                     </div>
                 </div>
@@ -88,8 +88,8 @@ $affected_count = count( $affected_files );
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
                     </div>
                     <div class="spm-v-content">
-                        <span class="spm-v-label"><?php esc_html_e( 'Author Status', 'smart-performance-monitor' ); ?></span>
-                        <span class="spm-v-value"><?php echo $trust['verification'] === 'verified' ? esc_html__( 'Verified Author', 'smart-performance-monitor' ) : esc_html__( 'Unverified Author', 'smart-performance-monitor' ); ?></span>
+                        <span class="spm-v-label"><?php esc_html_e( 'Author Status', 'spm-by-marwan' ); ?></span>
+                        <span class="spm-v-value"><?php echo $trust['verification'] === 'verified' ? esc_html__( 'Verified Author', 'spm-by-marwan' ) : esc_html__( 'Unverified Author', 'spm-by-marwan' ); ?></span>
                     </div>
                 </div>
                 <div class="spm-v-item">
@@ -97,7 +97,7 @@ $affected_count = count( $affected_files );
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     </div>
                     <div class="spm-v-content">
-                        <span class="spm-v-label"><?php esc_html_e( 'License Declaration', 'smart-performance-monitor' ); ?></span>
+                        <span class="spm-v-label"><?php esc_html_e( 'License Declaration', 'spm-by-marwan' ); ?></span>
                         <span class="spm-v-value"><?php echo esc_html( $trust['license'] ?? '' ); ?></span>
                     </div>
                 </div>
@@ -108,7 +108,7 @@ $affected_count = count( $affected_files );
     <!-- ── Detailed Security Findings ── -->
     <div class="spm-panel">
         <div class="spm-panel__header">
-            <h2 class="spm-panel__title"><?php esc_html_e( 'Suspicious Code Analysis', 'smart-performance-monitor' ); ?></h2>
+            <h2 class="spm-panel__title"><?php esc_html_e( 'Suspicious Code Analysis', 'spm-by-marwan' ); ?></h2>
             <span class="spm-panel__badge"><?php echo (int) $security['findings_count']; ?></span>
         </div>
         <div class="spm-panel__body">
@@ -133,14 +133,14 @@ $affected_count = count( $affected_files );
             <?php else : ?>
                 <div class="spm-clean-state">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                    <p><?php esc_html_e( 'Scan complete. No suspicious functions (eval, exec, etc.) or dangerous patterns were detected in the plugin codebase.', 'smart-performance-monitor' ); ?></p>
+                    <p><?php esc_html_e( 'Scan complete. No suspicious functions (eval, exec, etc.) or dangerous patterns were detected in the plugin codebase.', 'spm-by-marwan' ); ?></p>
                 </div>
             <?php endif; ?>
             
             <div style="margin-top: 24px; text-align: center; border-top: 1px solid #f1f5f9; padding-top: 20px;">
                  <button class="spm-btn spm-btn--outline" data-spm-basename="<?php echo esc_attr( $meta['basename'] ?? '' ); ?>" data-spm-action="security-scan">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                    <?php esc_html_e( 'Perform Deep Security Scan', 'smart-performance-monitor' ); ?>
+                    <?php esc_html_e( 'Perform Deep Security Scan', 'spm-by-marwan' ); ?>
                 </button>
             </div>
         </div>

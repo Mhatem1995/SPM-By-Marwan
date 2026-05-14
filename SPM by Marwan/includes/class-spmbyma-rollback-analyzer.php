@@ -43,9 +43,9 @@ class SPMBYMA_Rollback_Analyzer {
         if ( count( $versions ) < 2 ) {
             return [
                 'status'  => 'pending',
-                'label'   => __( 'Pending Data', 'smart-performance-monitor' ),
+                'label'   => __( 'Pending Data', 'spm-by-marwan' ),
                 'score'   => 0,
-                'message' => __( 'Insufficient version history to determine rollback readiness.', 'smart-performance-monitor' ),
+                'message' => __( 'Insufficient version history to determine rollback readiness.', 'spm-by-marwan' ),
                 'history' => $versions
             ];
         }
@@ -60,14 +60,14 @@ class SPMBYMA_Rollback_Analyzer {
         
         return [
             'status'         => $is_degraded ? 'recommended' : 'ready',
-            'label'          => $is_degraded ? __( 'Rollback Recommended', 'smart-performance-monitor' ) : __( 'Rollback Ready', 'smart-performance-monitor' ),
+            'label'          => $is_degraded ? __( 'Rollback Recommended', 'spm-by-marwan' ) : __( 'Rollback Ready', 'spm-by-marwan' ),
             'score'          => $is_degraded ? 40 : 100,
             'current_v'      => $current['plugin_version'],
             'previous_v'     => $previous['plugin_version'],
             'delta_pct'      => round( $diff_pct, 1 ),
             'message'        => $is_degraded 
-                ? sprintf( __( 'Current version is %.1f%% slower than v%s. Rollback may improve site speed.', 'smart-performance-monitor' ), $diff_pct, $previous['plugin_version'] )
-                : sprintf( __( 'v%s remains stable compared to v%s.', 'smart-performance-monitor' ), $current['plugin_version'], $previous['plugin_version'] ),
+                ? sprintf( __( 'Current version is %.1f%% slower than v%s. Rollback may improve site speed.', 'spm-by-marwan' ), $diff_pct, $previous['plugin_version'] )
+                : sprintf( __( 'v%s remains stable compared to v%s.', 'spm-by-marwan' ), $current['plugin_version'], $previous['plugin_version'] ),
             'history'        => $versions
         ];
     }

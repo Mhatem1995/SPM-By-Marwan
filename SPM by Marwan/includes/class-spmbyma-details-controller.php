@@ -34,7 +34,7 @@ class SPMBYMA_Details_Controller {
      */
     public function render_page(): void {
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_die( esc_html__( 'Unauthorized access.', 'smart-performance-monitor' ) );
+            wp_die( esc_html__( 'Unauthorized access.', 'spm-by-marwan' ) );
         }
 
         // 1. Get and sanitize plugin slug (basename).
@@ -42,14 +42,14 @@ class SPMBYMA_Details_Controller {
         $plugin_slug = isset( $_GET['plugin'] ) ? sanitize_text_field( wp_unslash( $_GET['plugin'] ) ) : '';
 
         if ( empty( $plugin_slug ) ) {
-            wp_die( esc_html__( 'No plugin specified.', 'smart-performance-monitor' ) );
+            wp_die( esc_html__( 'No plugin specified.', 'spm-by-marwan' ) );
         }
 
         // 2. Fetch plugin data.
         $data = $this->detail_provider->get_detail( $plugin_slug );
 
         if ( ! $data ) {
-            wp_die( esc_html__( 'Invalid plugin specified or plugin not found.', 'smart-performance-monitor' ) );
+            wp_die( esc_html__( 'Invalid plugin specified or plugin not found.', 'spm-by-marwan' ) );
         }
 
         // 3. Render the template.

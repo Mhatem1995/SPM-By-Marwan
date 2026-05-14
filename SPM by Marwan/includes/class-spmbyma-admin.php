@@ -28,7 +28,7 @@ class SPMBYMA_Admin {
         // Explicitly set the global title for the hidden page to prevent strip_tags(null) warning in admin-header.php
         add_action( 'load-admin_page_plugin-monitor-details', function() {
             global $title;
-            $title = __( 'Plugin Details', 'smart-performance-monitor' );
+            $title = __( 'Plugin Details', 'spm-by-marwan' );
         });
     }
 
@@ -37,8 +37,8 @@ class SPMBYMA_Admin {
      */
     public function register_menu(): void {
         add_menu_page(
-            __( 'Plugin Monitor', 'smart-performance-monitor' ),
-            __( 'Plugin Monitor', 'smart-performance-monitor' ),
+            __( 'Plugin Monitor', 'spm-by-marwan' ),
+            __( 'Plugin Monitor', 'spm-by-marwan' ),
             'manage_options',
             'spm-dashboard',
             [ $this, 'render_page' ],
@@ -49,8 +49,8 @@ class SPMBYMA_Admin {
         // Hidden Details Page
         add_submenu_page(
             'spm-hidden',
-            __( 'Plugin Details', 'smart-performance-monitor' ),
-            __( 'Plugin Details', 'smart-performance-monitor' ),
+            __( 'Plugin Details', 'spm-by-marwan' ),
+            __( 'Plugin Details', 'spm-by-marwan' ),
             'manage_options',
             'plugin-monitor-details',
             [ $this, 'render_details_page' ]
@@ -115,7 +115,7 @@ class SPMBYMA_Admin {
      */
     private function render_print_view(): void {
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_die( esc_html__( 'Unauthorized.', 'smart-performance-monitor' ) );
+            wp_die( esc_html__( 'Unauthorized.', 'spm-by-marwan' ) );
         }
 
         $snap = $this->data_service->get_dashboard_snapshot( 30 );
